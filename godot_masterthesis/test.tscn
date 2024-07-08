@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://0wimsk64lil1"]
+
+[ext_resource type="PackedScene" uid="uid://cx428dggdiwmk" path="res://scenes/main.tscn" id="1_86c4j"]
+[ext_resource type="Script" path="res://addons/godot_rl_agents/sync.gd" id="2_hpgsk"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Main" parent="." instance=ExtResource("1_86c4j")]
+
+[node name="Main2" parent="." instance=ExtResource("1_86c4j")]
+
+[node name="Sync" type="Node" parent="."]
+script = ExtResource("2_hpgsk")

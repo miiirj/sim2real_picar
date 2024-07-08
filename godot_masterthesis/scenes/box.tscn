@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://prcqwlmy2uj5"]
+
+[ext_resource type="PackedScene" uid="uid://c8w8etymua7eb" path="res://assets/imported/box.dae" id="1_ib734"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yyosa"]
+size = Vector3(1.95813, 1.34863, 1.96887)
+
+[node name="Box" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.350319, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00799561, 0.32373, 0.00787354)
+shape = SubResource("BoxShape3D_yyosa")
+
+[node name="box" parent="." instance=ExtResource("1_ib734")]

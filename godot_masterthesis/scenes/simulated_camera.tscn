@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk8posm8hkdiv"]
+
+[ext_resource type="Material" uid="uid://88vm776r8c8l" path="res://new_shader_material.tres" id="1_8wqed"]
+[ext_resource type="Script" path="res://scripts/simulated_camera.gd" id="1_rks0e"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_v5bac"]
+lightmap_size_hint = Vector2i(12, 12)
+material = ExtResource("1_8wqed")
+size = Vector2(2, 2)
+orientation = 1
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g4y2e"]
+viewport_path = NodePath("SubViewport")
+
+[node name="VirtualCamera" type="Node3D"]
+script = ExtResource("1_rks0e")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="."]
+remote_path = NodePath("../SubViewport/Camera3D")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(50, 25)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.852749)
+cast_shadow = 0
+lod_bias = 0.001
+visibility_range_end = 3.0
+mesh = SubResource("QuadMesh_v5bac")
+skeleton = NodePath("")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 332.0
+offset_bottom = 170.0
+
+[node name="CameraTexture" type="Sprite2D" parent="Control/TextureRect"]
+position = Vector2(191.226, 96.75)
+scale = Vector2(3.75451, 3.81)
+texture = SubResource("ViewportTexture_g4y2e")

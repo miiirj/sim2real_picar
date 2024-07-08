@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://byp1o0iedd6sr"]
+
+[ext_resource type="PackedScene" uid="uid://p3kg1om7826n" path="res://assets/imported/picar.dae" id="1_ec2ub"]
+
+[node name="picar" instance=ExtResource("1_ec2ub")]
+
+[node name="Wheel_Left_001" parent="." index="0"]
+transform = Transform3D(1.24036e-08, -0.102214, -1.10501e-07, -0.283762, -4.4679e-09, -6.98063e-15, 2.15047e-15, 3.98034e-08, -0.283762, -0.784668, 0, 0.447342)
